@@ -35,7 +35,11 @@
         <el-table-column prop="role_name" label="角色"></el-table-column>
         <el-table-column prop="mg_state" label="状态">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.mg_state"> </el-switch>
+            <el-switch
+              v-model="scope.row.mg_state"
+              @change="changeState(scope.row)"
+            >
+            </el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作">
@@ -276,9 +280,12 @@ export default {
       this.$message.success('删除成功!')
       this.getList()
     },
-    setRole(value){
-        console.log(value);
-    }
+    setRole(value) {
+      console.log(value)
+    },
+    changeState(val) {
+      this.$axios.put('/users/' + val.id + '/state/' + val.mg_state)
+    },
   },
 }
 </script>
