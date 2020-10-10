@@ -27,8 +27,8 @@
           <el-button type="primary" @click="addUser">添加用户</el-button>
         </el-col>
       </el-row>
-      <el-table border :data="list" stripe style="width: 100%">
-        <el-table-column type="index" label="#" width="50px"></el-table-column>
+      <el-table border :data="list" stripe>
+        <el-table-column type="index" label="#"></el-table-column>
         <el-table-column prop="username" label="姓名"></el-table-column>
         <el-table-column prop="email" label="邮箱"></el-table-column>
         <el-table-column prop="mobile" label="电话"></el-table-column>
@@ -81,7 +81,7 @@
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="40%">
       <el-form
         :model="addUserForm"
-        :rules="addRules"
+        :rules="addRules"d
         ref="addRuleForm"
         label-width="70px"
       >
