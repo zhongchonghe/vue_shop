@@ -1,0 +1,31 @@
+
+@host=http://127.0.0.1:8888/api/private/v1
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjUwMCwicmlkIjowLCJpYXQiOjE2MDI0OTUyNDUsImV4cCI6MTYwMjU4MTY0NX0.EUi3EkEA_eoODiHUkWjAa9WXAKCnrKy9DM-jIoJXD2k
+###
+post {{host}}/login 
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"123456"
+
+}
+
+### 请求商品列表数据
+get {{host}}/goods
+Content-Type: application/json
+Authorization:{{token}}
+
+{
+    "pagenum": "1",
+    "pagesize": "10",
+}
+### 请求权限列表
+get {{host}}/rights/list
+Content-Type: application/json
+Authorization:{{token}}
+### 请求用户
+
+get {{host}}/users/509
+Content-Type: application/json
+Authorization:{{token}}

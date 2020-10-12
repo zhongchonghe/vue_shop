@@ -81,7 +81,7 @@
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="40%">
       <el-form
         :model="addUserForm"
-        :rules="addRules"d
+        :rules="addRules"
         ref="addRuleForm"
         label-width="70px"
       >
