@@ -15,6 +15,9 @@ import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
 
+import TreeTable from 'vue-table-with-tree-grid'
+
+
 Vue.use(VueQuillEditor, /* { default global options } */)
 
 Vue.prototype.$axios = axios
@@ -45,7 +48,7 @@ Vue.filter('dateFormat', function (originVal) {
   return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
 })
 
-
+Vue.component('tree-table', TreeTable)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 

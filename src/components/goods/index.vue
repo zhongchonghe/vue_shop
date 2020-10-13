@@ -7,8 +7,13 @@
 
     <div id="body">
       <div id="FileSubmmit">
-        <!-- action="http://127.0.0.1:8080/api/data_comparison" method="post" enctype="multipart/form-data" -->
-        <form id="form">
+        <form
+          id="excelForm"
+          action="api/data_comparison"
+          method="post"
+          enctype="multipart/form-data"
+          onsubmit="return func1()"
+        >
           <p><input type="file" name="NL_excel" /> 纳龙清单excel文件</p>
           <p><input type="submit" value="提交" /></p>
         </form>
@@ -18,17 +23,22 @@
 </template>
 
 <script>
-let form = document.querySelector('#form')
-// 将html表单转换为formData表单对象
-var formData = new FormData(form)
-this.axios
-  .post('http://127.0.0.1:8080/api/data_comparison', formData)
-  .then((res) => {
-    console.log(res)
-  })
-  .catch((err) => {
-    console.error(err)
-  })
+export default {
+  methods: {
+    func1() {
+      let formData = new FormData()
+      this.$axios
+        .post(
+          'https://it-security-test.aecg.com.cn/api/data_comparison',
+          formData
+        )
+        .then(function (res) {
+          console.log(res)
+        })
+      return false
+    },
+  },
+}
 </script>
 
 <style scoped>

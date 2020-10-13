@@ -9,3 +9,6 @@ html,body,#app{
 .ql-container {
     min-height: 300px!important;
   }
+.zk-table{
+margin-top: 15px;
+}
